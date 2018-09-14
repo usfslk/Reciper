@@ -19,7 +19,7 @@ DashStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={'md-restaurant'}
+      name={'md-search'}
     />
   ),
 };
@@ -34,7 +34,7 @@ SearchStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={'md-search'}
+      name={'md-restaurant'}
     />
   ),
 };

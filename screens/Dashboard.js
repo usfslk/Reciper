@@ -8,15 +8,20 @@ import ImageLoad from 'react-native-image-placeholder';
 import { SearchBar, Icon, Rating} from 'react-native-elements';
 
 import Search from '../screens/Search';
+import Browser from '../screens/Browser';
 import Navbar from '../components/Navbar';
 import Count from '../components/Count';
 import Layout from '../constants/Layout';
 import Results from '../components/Results';
+import Spinner from '../components/Spinner';
 
 const dairy = ['Milk', 'Eggs', 'Butter', 'Parmesan', 'Cheddar', 'Cream cheese', 'Yogurt', 'Goat cheese', 'Brie', 'Gouda', 'Creme fraiche', 'Mascarpone', 'Emmental', 'Neufchatel']
 const vegetables = ['Potato', 'Tomato', 'Onion', 'Garlic', 'Basil', 'Broccoli', 'Carrot', 'Mushroom', 'Green beans', 'Ginger', 'Chili pepper', 'Celeryn', 'Rosemary', 'Red onions', 'Sweet potato', 'Avocado', 'Olives','Asparagus', 'Pumpkin', 'Squash', 'Mint', 'Radish', 'Artic' ]
 const meats = ['Bacon', 'Fish', 'Whole chicken', 'Chicken breast','Beef steak','Ham', 'Hot dog','Pork chops', 'Chicken thighs', 'Ground turkey', 'Pork', 'Pepperoni', 'Ground pork' ,'Chorizo', 'Salami', 'Spam', 'Venison', 'Bologna', 'Lamb', 'Corned beef', 'Duck', 'Ground veal', 'Goose', 'Oxtail', 'Foie gras', 'Snail', 'Alligator']
  
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+
 let Values = {
   fontSize: 15
 };
@@ -96,7 +101,8 @@ export default class Dashboard extends Component {
     loaded: false,
     selectedIngredients: [],
     ex: 'super super',
-    data: []
+    data: [],
+    query: '',
   }
 }
 
@@ -108,42 +114,40 @@ export default class Dashboard extends Component {
         navigate('Select', {passedData:this.state.selectedIngredients });
       }
 
+
   render() {
   const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1 }}>
 
+
      <Navbar title="Reciper." function="Submit" type="white" handle={() => this.switcher()} />
 
-      {this.state.loading ? <View style={s.loading} ><Image 
-      source={require('../assets/loading.gif')}
-      /></View> : null }
+      {this.state.loading ? <Spinner /> : null }
 
              <ParallaxScrollView
               style={{ flex: 1, overflow: 'hidden' }}
               renderBackground={() => <Image source={{ uri: `https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8a5e4cac8bcaf69ffaf5d3b1c2b063e4&auto=format&fit=crop&w=1350&q=80`, width: window.width, height: 250 }}/>}
               renderFixedHeader={() => 
                 <View>
-                  <SearchBar
-                  containerStyle={{
-                    backgroundColor: RkTheme.current.colors.white,
-                    borderBottomWidth: 0,
-                    borderTopWidth: 0,
-                    marginHorizontal: 0,
-                                 }}
-                  inputStyle={{
-                    backgroundColor: '#fff',
-                  }}
-                  inputContainerStyle={{
-                    backgroundColor: '#000000'
-                  }}
-                  searchIcon={{ size: 24 }}
+
+                <SearchBar
+                  containerStyle={{ backgroundColor: '#fff',borderBottomWidth: 0,
+                  borderTopWidth: 0, marginHorizontal: 0, }}
+                  inputStyle={{ backgroundColor: 'transparent'}}
+                  inputContainerStyle={{ backgroundColor: '#000000'}}
+                  searchIcon={{ type: 'font-awesome', name: 'chevron-left' }}
+                    cancelIcon={{ type: 'font-awesome', name: 'chevron-left' }}
+
                   placeholder='Add an ingredient'
                   value={this.state.query}
                   onChangeText={(query) => this.updateChild(query.target.value)}
-                   />
+                />                
+
                 </View>}
+
               parallaxHeaderHeight={ 250 }>
+
               <View style={{backgroundColor: RkTheme.current.colors.darkblue }} >
               <Text style={s.category}>Dairy</Text>
                <SelectMultiple
@@ -190,10 +194,6 @@ const s = StyleSheet.create({
     paddingLeft: 15,
     color: RkTheme.current.colors.white
   },
-    loading: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 100
-  }
+
 
 });
