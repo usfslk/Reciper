@@ -116,19 +116,10 @@ export default class Dashboard extends Component {
         navigate('Select', {passedData:this.state.selectedIngredients });
       }
 
-test = () => {
-  this.props.navigation.navigate('Browser',{ source: "test" })
-}
-
-
   render() {
   const { navigate } = this.props.navigation;
     return (
       <View style={{ flex: 1 }}>
-
-        <RkButton rkType='small outline' onPress={this.test.bind(this)}>View</RkButton>
-
-
      <Navbar title="Reciper." function="Submit" type="white" handle={() => this.switcher()} />
 
       {this.state.loading ? <Spinner /> : null }

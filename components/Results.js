@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, Keyboard, FlatList, ScrollView, Alert} from 'react-native';
 import { RkButton, RkCard, RkTheme, RkTextInput, RkText } from 'react-native-ui-kitten';
-import { SearchBar, Icon } from 'react-native-elements';
+import { SearchBar, Icon, Card } from 'react-native-elements';
 import ImageLoad from 'react-native-image-placeholder';
+import { withNavigation } from 'react-navigation';
 
-import WebViewContainer from '../components/WebViewContainer';
 
 RkTheme.setType('RkCard', 'story', {
   img: {
@@ -20,7 +20,7 @@ RkTheme.setType('RkCard', 'story', {
 });
 
 
-export default class Results extends Component {
+class Results extends React.Component {
 constructor(props) {
   super(props)
   this.state = {
@@ -29,15 +29,11 @@ constructor(props) {
   } 
 }
 
-test = () => {
-  this.props.navigation.navigate('Browser',{ source: item.href })
-}
-
-
 	render () {
-
+    const { navigate } = this.props.navigation;
     return (
 	<ScrollView>
+
 	<SearchBar
 		containerStyle={{ backgroundColor: '#fff',borderBottomWidth: 0,
 		borderTopWidth: 0, marginHorizontal: 0}}
@@ -55,19 +51,19 @@ test = () => {
 	  ListEmptyComponent={this.noItemDisplay}
 	  renderItem={({ item, index }) => (
 
-	  <RkCard rkType='story'>
-	    <View rkCardContent>
-	      <ImageLoad isShowActivity={false} borderRadius={5} placeholderStyle={{ width: 20, height: 20}} style={s.pix} source={{uri: item.thumbnail}}/>
-		  <RkText rkType='header'>{item.title.trim()}</RkText>
-	      <RkText style={{textAlign: 'justify' }} >{item.ingredients.trim()}</RkText>
-	   </View>
-	    <View rkCardFooter>
-	      <RkButton rkType='small outline' onPress={this.test.bind(this)}>View</RkButton>
+	<Card title={item.title.trim()}>
+		<Text style={s.ing} >{item.ingredients.trim()}</Text>
+		<View style={s.row}>
+		<ImageLoad isShowActivity={false} borderRadius={5}
+		placeholderStyle={{ width: 20, height: 20}}
+		style={s.pix}
+		resizeMode="cover"
+		source={{uri: item.thumbnail}}
+		/>
+		<RkButton rkType='small outline' onPress={() => navigate('Browser', { link: item.href, title: item.title.trim() })} >View</RkButton>
+		</View>
+	</Card>
 
-	      <RkButton rkType='small red'><Icon name='favorite-border' color={RkTheme.current.colors.red}/></RkButton>
-	    </View>
-	  </RkCard>
-	       
 	  )}/>
 
 	</ScrollView> 
@@ -84,6 +80,16 @@ const s = StyleSheet.create({
   pix: {
   	width: 90,
   	height: 40,
-  	marginBottom: 5
-  }
+  	marginVertical: 5
+	},
+	row: {
+	 flexDirection: 'row' ,
+	 justifyContent: 'space-between',
+	 alignItems: 'center'
+	},
+	ing: {
+	  textAlign: 'center', fontSize: 14, fontWeight: '200', marginBottom: 10
+	}
 });
+
+export default withNavigation(Results);

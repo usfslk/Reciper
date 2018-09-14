@@ -59,6 +59,10 @@ componentDidMount() {
   
 }
 
+test = () => {
+  this.props.navigation.navigate('Browser',{ source: "test" })
+}
+
   render() {
     const { navigation } = this.props;
     const passedData = navigation.getParam('passedData', 'some default value');
