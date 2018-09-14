@@ -29,8 +29,8 @@ constructor(props) {
   } 
 }
 
-test() {
-	this.props.navigation.navigate('Browser',{ source: item.href })
+test = () => {
+  this.props.navigation.navigate('Browser',{ source: item.href })
 }
 
 
@@ -62,7 +62,7 @@ test() {
 	      <RkText style={{textAlign: 'justify' }} >{item.ingredients.trim()}</RkText>
 	   </View>
 	    <View rkCardFooter>
-	      <RkButton rkType='small outline' onPress={this.test}>View</RkButton>
+	      <RkButton rkType='small outline' onPress={this.test.bind(this)}>View</RkButton>
 
 	      <RkButton rkType='small red'><Icon name='favorite-border' color={RkTheme.current.colors.red}/></RkButton>
 	    </View>
