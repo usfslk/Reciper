@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Keyboard, FlatList, ScrollView, Alert} from 'react-native';
+import {StyleSheet, Text, View, Keyboard, FlatList, ScrollView, Dimensions} from 'react-native';
 import { RkButton, RkCard, RkTheme, RkTextInput, RkText } from 'react-native-ui-kitten';
 import { SearchBar, Icon, Card } from 'react-native-elements';
 import ImageLoad from 'react-native-image-placeholder';
 import { withNavigation } from 'react-navigation';
+const width = Dimensions.get('window').width;
 
-
-RkTheme.setType('RkCard', 'story', {
-  img: {
-    height: 100,
-  },
-  content:{
-    paddingBottom: 0
-  },
-  container: {
-    backgroundColor: '#fff',
-    marginBottom: 0
-  }
+RkTheme.setType('RkButton','block', {
+	width: width / 1
 });
 
 
@@ -32,7 +23,7 @@ constructor(props) {
 	render () {
     const { navigate } = this.props.navigation;
     return (
-	<ScrollView>
+	<ScrollView style={s.flat} >
 
 	<SearchBar
 		containerStyle={{ backgroundColor: '#fff',borderBottomWidth: 0,
@@ -46,22 +37,16 @@ constructor(props) {
 
 	 <FlatList
 	  data={this.props.results}
+	  style={{marginBottom: 15}}
 	  showsVerticalScrollIndicator={false}
 	  keyExtractor={(item, index) => item.href}
 	  ListEmptyComponent={this.noItemDisplay}
 	  renderItem={({ item, index }) => (
 
-	<Card title={item.title.trim()}>
-		<Text style={s.ing} >{item.ingredients.trim()}</Text>
-		<View style={s.row}>
-		<ImageLoad isShowActivity={false} borderRadius={5}
-		placeholderStyle={{ width: 20, height: 20}}
-		style={s.pix}
-		resizeMode="cover"
-		source={{uri: item.thumbnail}}
-		/>
-		<RkButton rkType='small outline' onPress={() => navigate('Browser', { link: item.href, title: item.title.trim() })} >View</RkButton>
-		</View>
+	<Card>	
+	        <Text style={s.header} >{item.title.trim()}</Text>
+			<Text style={s.ing} >{item.ingredients.trim()}</Text>
+			<View style={s.btn} ><RkButton rkType='small block outline' onPress={() => navigate('Browser', { link: item.href, title: item.title.trim() })} >View</RkButton></View>
 	</Card>
 
 	  )}/>
@@ -77,19 +62,20 @@ const s = StyleSheet.create({
   flat: {
     flex: 1
   },
-  pix: {
-  	width: 90,
-  	height: 40,
-  	marginVertical: 5
-	},
-	row: {
+	btn: {
 	 flexDirection: 'row' ,
-	 justifyContent: 'space-between',
-	 alignItems: 'center'
+	 alignItems: 'center',
+	 justifyContent: 'center',
+	 marginTop: 20, flex: 1
 	},
 	ing: {
-	  textAlign: 'center', fontSize: 14, fontWeight: '200', marginBottom: 10
+	   fontSize: 12, fontWeight: '200', 
+	   textAlign: 'left', flex: 1
+	}, 
+	header: {
+		fontWeight: '400',
+		fontSize: 20,
 	}
-});
+	});
 
 export default withNavigation(Results);
