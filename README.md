@@ -10,7 +10,9 @@ Everyone needs a helping hand in the kitchen and that's exactly what our 'Recipe
  ### Prerequisites
  
 [Python 2.7](https://www.python.org/downloads/release/python-2715/)
+
 [Node.js](https://nodejs.org/en/download/)
+
 [React Native](https://facebook.github.io/react-native/docs/getting-started.html)
 
 We suggest using [CRNA](https://github.com/react-community/create-react-native-app) for this project:
