@@ -24,7 +24,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-Copyright (c) [2018] [MIT]
+Copyright (c) [2018] MIT
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
