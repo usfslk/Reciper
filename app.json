@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "reciper",
+    "description": "Unlimited recipes for daily inspiration",
+    "slug": "reciper",
+    "privacy": "public",
+    "sdkVersion": "30.0.0",
+    "platforms": ["ios", "android"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "ios": {
+     "bundleIdentifier": "com.usfslk.reciper"
+   },
+   "android": {
+     "package": "com.usfslk.reciper"
+   },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}

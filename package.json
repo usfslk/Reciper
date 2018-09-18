@@ -1,0 +1,21 @@
+{
+  "name": "reciper",
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "^30.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-elements": "^0.19.1",
+    "react-native-loading-spinner-overlay": "^0.5.2",
+    "react-native-select-multiple": "^1.2.0",
+    "react-native-ui-kitten": "^3.0.1",
+    "react-navigation": "^2.14.2"
+  }
+}
