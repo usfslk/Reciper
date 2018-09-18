@@ -1,4 +1,4 @@
-# Reciper. ![CI](https://img.shields.io/badge/build-passing-brightgreen.svg)
+# Reciper ![CI](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 ![Logo](https://i.stack.imgur.com/qFjUs.png)
 
