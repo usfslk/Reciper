@@ -5,22 +5,6 @@
 
 Everyone needs a helping hand in the kitchen and that's exactly what our 'Recipe Builder' does, it's a recipe search engine that lets you search by ingredients you have at home. Find thousands of recipes you can make right now.
 
-## Getting Started
-
- ### Prerequisites
- 
-[Python 2.7](https://www.python.org/downloads/release/python-2715/)
-
-[Node.js](https://nodejs.org/en/download/)
-
-[React Native](https://facebook.github.io/react-native/docs/getting-started.html)
-
-We suggest using [CRNA](https://github.com/react-community/create-react-native-app) for this project:
-
-    $ npm install -g create-react-native-app
-    $ create-react-native-app reciper
-    $ cd reciper/
-
 ## Live Demo
 
 With your mobile phone, you can scan the QR code in the link below to load this project
@@ -29,12 +13,14 @@ https://expo.io/@usfslk/reciper
 
 ## Development
 
+    git clone https://github.com/usfslk/Reciper.git
+    cd reciper
     npm install
     npm start 
     
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
