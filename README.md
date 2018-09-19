@@ -11,6 +11,8 @@ With your mobile phone, you can scan the QR code in the link below to load this 
 
 https://expo.io/@usfslk/reciper
 
+![Mockup](https://i.imgur.com/GcwrCUH.png)
+
 ## Development
 
     git clone https://github.com/usfslk/Reciper.git
