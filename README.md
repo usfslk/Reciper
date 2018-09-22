@@ -28,6 +28,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 - Remove favorites from firebase
 - Refresh WebView on setState
+- Apply bold fonts for headers
+
 
 ## License
 
