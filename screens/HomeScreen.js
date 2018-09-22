@@ -113,7 +113,7 @@ export default class HomeScreen extends Component {
           showsVerticalScrollIndicator={false} style={s.list} 
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Dairy</Animatable.Text>
-          <SelectMultiple items={dairy} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={dairy} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />        
           </ScrollView></View> : null }
@@ -123,7 +123,7 @@ export default class HomeScreen extends Component {
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Meats</Animatable.Text>
-          <SelectMultiple items={meats} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={meats} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />   
           </ScrollView></View> : null }
@@ -133,7 +133,7 @@ export default class HomeScreen extends Component {
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Vegetables</Animatable.Text>
-          <SelectMultiple items={vegetables} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={vegetables} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />  
           </ScrollView></View> : null }
@@ -143,7 +143,7 @@ export default class HomeScreen extends Component {
           showsVerticalScrollIndicator={false} style={s.list} 
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Fruits</Animatable.Text>
-          <SelectMultiple items={fruits} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={fruits} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />        
           </ScrollView></View> : null }
@@ -153,7 +153,7 @@ export default class HomeScreen extends Component {
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Grains and Bakery</Animatable.Text>
-          <SelectMultiple items={grains} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={grains} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />   
           </ScrollView></View> : null }
@@ -163,7 +163,7 @@ export default class HomeScreen extends Component {
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Desserts</Animatable.Text>
-          <SelectMultiple items={desserts} selectedLabelStyle={{fontWeight: 'bold' }}
+          <SelectMultiple items={desserts} selectedLabelStyle={{fontFamily: 'bold' }}
           selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
           onSelectionsChange={this.onSelectionsChange} />  
           </ScrollView></View> : null }

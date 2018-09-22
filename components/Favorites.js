@@ -23,11 +23,13 @@ class Favorites extends Component {
             keys:[],
             recipe: 'Testing',
             loaded: false,
+            loading: true
         }
       }
      
 componentDidMount = () => {
 const { currentUser } = firebase.auth();
+this.setState({loading: true})
     firebase.database().ref(`/users/${currentUser.uid}/favorites/`)
     .on('value', snapshot => {
     var obj = snapshot.val()
@@ -42,6 +44,7 @@ const { currentUser } = firebase.auth();
         mainData:mainData,
         keys:keys,
         loaded: true,
+        loading: false,
     })
     });
 }
@@ -83,7 +86,6 @@ container: {
 },
 favtext: {
     fontSize: 18,
-    fontWeight: '400',
     paddingLeft: 25,
     paddingVertical: 9,
 },
@@ -94,15 +96,13 @@ button: {
     marginVertical: 10
 }, 
 textbutton: {
-    fontWeight: 'bold',
     textAlign: 'center'  
 },
 ing: {
-   fontSize: 12, fontWeight: '200', 
-   textAlign: 'left', flex: 1
+   fontSize: 12, 
+   textAlign: 'left',
 }, 
 header: {
-    fontWeight: 'bold',
     fontSize: 20,
 },
 card: {

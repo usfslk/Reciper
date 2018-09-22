@@ -74,7 +74,8 @@ componentDidMount() {
       <Navbar title={this.state.title} name="close" function=""  handle={() => goBack(null)} type="icon" />
       
       <PopupDialog height={150} width={0.8} dialogStyle={{justifyContent: 'center', alignItems: 'center'}}
-        ref={(popupDialog) => { this.popupSuccess = popupDialog; }}
+        ref={(popupDialog) => { this.popupSuccess
+         = popupDialog; }}
       >
         <View>
           <Text>Success</Text>

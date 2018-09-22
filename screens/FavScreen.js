@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, ListView, StyleSheet, View, TouchableOpacity, Alert, StatusBar, Keyboard } from 'react-native';
+import { AppRegistry, Image, ListView, StyleSheet, View, TouchableOpacity, Alert, StatusBar, Keyboard } from 'react-native';
 import Navbar from '../components/Navbar';
 import { RkTheme, RkTextInput} from 'react-native-ui-kitten';
 import {Text, SearchBar, Icon} from 'react-native-elements';
@@ -35,33 +35,33 @@ this.setState({ loading: true})
   }
 
 onLogIn = () => {
+  this.setState({ loading: true });
   const { email, password } = this.state;
-  this.setState({ error: '', loading: true });
   Keyboard.dismiss()
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then(this.onSuccess.bind(this))
   .catch(() => {
     this.popupError.show();
   })
-  this.popupWelcome.show();
 };
 
 onSignUp = () => {
   const { email, password } = this.state;
-  this.setState({ error: '', loading: true });
+  this.setState({ loading: true });
   Keyboard.dismiss()
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then(this.onSuccess.bind(this))
   .catch(() => {
     this.popupError.show();
-    this.setState({loading: false})
+    this.setState({loading: false});
   })
   this.popupWelcome.show();
 };
 
 
 onLogOut() {
-  firebase.auth().signOut()
+  firebase.auth().signOut();
+
 };
 
 onSuccess() {
@@ -84,7 +84,15 @@ onSuccess() {
       />
       <Navbar title='Favorites' name="exit-to-app" function=""  handle={this.onLogOut} type="icon" />
 
-      <PopupDialog height={150} width={0.8} dialogStyle={{justifyContent: 'center', alignItems: 'center'}}
+      {this.state.loading ? 
+      <View style={s.spinner}>
+      <Image style={{width: 25, height: 25}}
+      source={require('../assets/loading.gif')}
+      /> 
+      </View>
+      : null }
+
+       <PopupDialog height={150} width={0.8} dialogStyle={{justifyContent: 'center', alignItems: 'center'}}
         ref={(popupDialog) => { this.popupWelcome = popupDialog; }}
       >
         <View>
@@ -161,7 +169,6 @@ const s = StyleSheet.create({
     backgroundColor: '#fff',
    },
   textbutton: {
-    fontWeight: '400',
     fontSize: 18,
     backgroundColor: '#0c1c2c',
     paddingHorizontal: 60,

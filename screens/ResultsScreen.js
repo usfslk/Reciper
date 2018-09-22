@@ -71,7 +71,7 @@ export default class ResultsScreen extends Component {
       
       {this.state.loading ? 
       <View style={s.spinner}>
-      <Image style={{width: 75, height: 75}}
+      <Image style={{width: 25, height: 25}}
       source={require('../assets/loading.gif')}
       /> 
       </View>

@@ -65,8 +65,7 @@ const s = StyleSheet.create({
 	   textAlign: 'left', flex: 1
 	}, 
 	header: {
-		fontWeight: 'bold',
-		fontSize: 20,
+		fontSize: 16,
 	},
 	card: {
 		backgroundColor: '#fff',
