@@ -4,6 +4,7 @@ import { RkButton, RkCard, RkTheme, RkTextInput, RkText } from 'react-native-ui-
 import { SearchBar, Icon } from 'react-native-elements';
 import Spinner from 'react-native-loading-spinner-overlay';
 import SelectMultiple from 'react-native-select-multiple';
+import * as Animatable from 'react-native-animatable';
 
 import Navbar from '../components/Navbar';
 import Results from '../components/Results';
@@ -38,8 +39,8 @@ export default class ResultsScreen extends Component {
         .then((responseJson) => {
           this.setState({
             userdata: responseJson.results,
-            loaded: true,
             loading: false,
+            loaded: true,
           });
         }) 
   }
@@ -68,9 +69,13 @@ export default class ResultsScreen extends Component {
       />
       <Navbar title="Results" name="refresh" function=""  handle={() => this.apiCall()} type="icon" />
       
-      {this.state.loading ? <View style={s.spinner}>
-        <Spinner color={'#000'}/>
-      </View> : null }
+      {this.state.loading ? 
+      <View style={s.spinner}>
+      <Image style={{width: 75, height: 75}}
+      source={require('../assets/loading.gif')}
+      /> 
+      </View>
+      : null }
 
       {this.state.loaded ?
         <Results results={this.state.userdata} />

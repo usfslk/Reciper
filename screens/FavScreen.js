@@ -1,56 +1,222 @@
 import React, { Component } from 'react';
-import { AppRegistry, ListView, StyleSheet, View, TouchableOpacity, Alert, StatusBar } from 'react-native';
+import { AppRegistry, ListView, StyleSheet, View, TouchableOpacity, Alert, StatusBar, Keyboard } from 'react-native';
 import Navbar from '../components/Navbar';
-import { RkTheme} from 'react-native-ui-kitten';
-import {Text, SearchBar} from 'react-native-elements';
+import { RkTheme, RkTextInput} from 'react-native-ui-kitten';
+import {Text, SearchBar, Icon} from 'react-native-elements';
+import firebase from '../components/config';
+import Favorites from '../components/Favorites';
+import PopupDialog from 'react-native-popup-dialog';
+
 class FavScreen extends Component {
 static navigationOptions = { header: null };
+constructor(props) {
+   super(props)
+   this.state = {
+     currentUser: '',
+     error: null,
+     UserInput: "",
+     loggedIn: null,
+     loggedOut: null,
+     email: '', password: '',
+   }
+ }
 
-login() {
-  Alert.alert(
-  'Auth',
-  'Coming soon',
-  [
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
-  ],
-  { cancelable: true }
-)
-}
+componentWillMount = () => {
+this.setState({ loading: true})
 
-  render() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+      this.setState({ loggedIn: true, loggedOut: false, loading: false  });
+    }
+    else {
+      this.setState({ loggedIn: false, loggedOut: true, loading: false });
+    }
+  });
+  }
+
+onLogIn = () => {
+  const { email, password } = this.state;
+  this.setState({ error: '', loading: true });
+  Keyboard.dismiss()
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(this.onSuccess.bind(this))
+  .catch(() => {
+    this.popupError.show();
+  })
+  this.popupWelcome.show();
+};
+
+onSignUp = () => {
+  const { email, password } = this.state;
+  this.setState({ error: '', loading: true });
+  Keyboard.dismiss()
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(this.onSuccess.bind(this))
+  .catch(() => {
+    this.popupError.show();
+    this.setState({loading: false})
+  })
+  this.popupWelcome.show();
+};
+
+
+onLogOut() {
+  firebase.auth().signOut()
+};
+
+onSuccess() {
+  this.setState({
+    email: '',
+    password: '',
+    loading: false,
+    error: ''
+  });
+};
+
+  render() { 
     return (
 
       <View style={s.container} >
       <StatusBar
       translucent
       backgroundColor="rgba(0, 0, 0, 0.20)"
-      animated
+      animated  
       />
-      <Navbar title="Favorites." function="Login" type="white" handle={() => this.login()} />
-      <SearchBar
+      <Navbar title='Favorites' name="exit-to-app" function=""  handle={this.onLogOut} type="icon" />
+
+      <PopupDialog height={150} width={0.8} dialogStyle={{justifyContent: 'center', alignItems: 'center'}}
+        ref={(popupDialog) => { this.popupWelcome = popupDialog; }}
+      >
+        <View>
+          <Text>Welcome</Text>
+        </View>
+      </PopupDialog>
+
+     <PopupDialog height={150} width={0.8} dialogStyle={{justifyContent: 'center', alignItems: 'center'}}
+        ref={(popupDialog) => { this.popupError = popupDialog; }}
+      >
+        <View>
+          <Text style={{textAlign: 'center' }} >The username and password you entered did not match our records. Please double-check and try again.</Text>
+        </View>
+      </PopupDialog>
+
+{/*      <SearchBar
         containerStyle={{ backgroundColor: '#fff',borderBottomWidth: 0,
         borderTopWidth: 0, marginHorizontal: 0}}
         inputStyle={{ backgroundColor: 'transparent'}}
         searchIcon={{ size: 24 }}
         placeholder='Looking for something specific?'
-      />
-      <Text h5 style={s.text} >
-        Under Maintenance
-      </Text>
+      />*/}
+
+{this.state.loggedOut ?
+      <Text style={s.infoheader}>Please create an account or sign in to use this feature</Text>
+    : null }
+
+    {this.state.loggedOut ?
+       <View style={{paddingHorizontal: 25}} >
+          <RkTextInput
+          style={s.textinput}
+          placeholder="Email"
+          value={this.state.email}
+          onChangeText={email => this.setState({ email })}
+          />
+
+          <RkTextInput
+          style={s.textinput}
+          secureTextEntry={true}
+          placeholder="Password"
+          value={this.state.password}
+          onChangeText={password => this.setState({ password })}
+          />
+      </View>
+    : null }
+
+    {this.state.loggedOut ?
+      <View style={s.authbtn}>
+        <TouchableOpacity
+          style={s.button}
+          onPress={this.onLogIn}>
+          <Text style={s.textbutton}>Sign in</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={s.button}
+          onPress={this.onSignUp}>
+          <Text style={s.textbutton}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
+    : null }
+        
+     {this.state.loggedIn ?
+      <Favorites />
+      : null }
+
       </View>
     );
   }
 }
 const s = StyleSheet.create({
   container: {
-      flex: 1,
+    flex: 1,
+    backgroundColor: '#fff',
    },
-   text: {
-     paddingVertical: 50,
-     textAlign: 'center',
-     color: '#222',
-     fontWeight: '400',
-   }
+  textbutton: {
+    fontWeight: '400',
+    fontSize: 18,
+    backgroundColor: '#0c1c2c',
+    paddingHorizontal: 60,
+    paddingVertical: 15,
+    textAlign: 'center',
+    color: '#fff',
+    borderRadius: 5,
+  },
+  infoheader: {
+    fontSize: 18,
+    paddingVertical:  45,
+    textAlign: 'center',
+    marginHorizontal: 25
+  },
+  loading: {
+    margin: 40,
+  },
+  button:{
+    marginVertical: 5,
+    marginHorizontal: 25
+  },
+  authbtn:{
+    flexDirection : 'row',
+    alignItems: 'stretch',
+    justifyContent: 'space-between',
+    marginVertical: 7,
+  },
+  spinner:{
+    alignSelf: 'center',
+    marginVertical: 25,
+  },
+  textinput: {
+    backgroundColor: '#fff',
+  },
+  rowgoogle:{
+    flexDirection : 'row',
+    backgroundColor: '#34a853',
+    paddingHorizontal: 60,
+    paddingVertical: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 7,
+    borderRadius: 5,
+  },
+  rowtwitter:
+  {
+    backgroundColor: '#1da1f2',
+    flexDirection : 'row',
+    paddingHorizontal: 60,
+    paddingVertical: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 7,
+    borderRadius: 5,
+  }
 })
 
 export default FavScreen;

@@ -4,14 +4,19 @@
  */
 
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
 
 export default class App extends React.Component {
-
-
+closeControlPanel = () => {
+    this._drawer.close()
+  };
+  openControlPanel = () => {
+    this._drawer.open()
+  };
   render() {
       return (
+
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <AppNavigator />
