@@ -61,7 +61,6 @@ onSignUp = () => {
 
 onLogOut() {
   firebase.auth().signOut();
-
 };
 
 onSuccess() {
@@ -170,7 +169,7 @@ const s = StyleSheet.create({
    },
   textbutton: {
     fontSize: 18,
-    backgroundColor: '#0c1c2c',
+    backgroundColor: '#000',
     paddingHorizontal: 60,
     paddingVertical: 15,
     textAlign: 'center',
@@ -203,27 +202,7 @@ const s = StyleSheet.create({
   textinput: {
     backgroundColor: '#fff',
   },
-  rowgoogle:{
-    flexDirection : 'row',
-    backgroundColor: '#34a853',
-    paddingHorizontal: 60,
-    paddingVertical: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 7,
-    borderRadius: 5,
-  },
-  rowtwitter:
-  {
-    backgroundColor: '#1da1f2',
-    flexDirection : 'row',
-    paddingHorizontal: 60,
-    paddingVertical: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 7,
-    borderRadius: 5,
-  }
+
 })
 
 export default FavScreen;
