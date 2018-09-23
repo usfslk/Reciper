@@ -19,10 +19,13 @@
     "react-native-elements": "^0.19.1",
     "react-native-global-props": "^1.1.3",
     "react-native-loading-spinner-overlay": "^0.5.2",
+    "react-native-paper": "^2.0.1",
     "react-native-popup": "^0.6.1",
     "react-native-popup-dialog": "^0.15.0",
     "react-native-select-multiple": "^1.2.0",
     "react-native-ui-kitten": "^3.0.1",
-    "react-navigation": "^2.14.2"
+    "react-navigation": "^2.14.2",
+    "react-navigation-material-bottom-tabs": "^0.4.0",
+    "react-navigation-transitions": "^1.0.5"
   }
 }

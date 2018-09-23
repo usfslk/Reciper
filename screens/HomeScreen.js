@@ -84,6 +84,9 @@ export default class HomeScreen extends Component {
 
       <Navbar title="Dashboard" function="Submit" type="white" handle={() => this.switcher()} />
 
+          <View>
+            <Count results={this.state.selectedIngredients}/>
+          </View>
 
         <View style={s.divider} />
         <Animatable.View easing='ease-out-circ' duration={500} animation="fadeIn" style={s.btnblock}>
@@ -138,7 +141,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />  
           </ScrollView></View> : null }
 
-          {this.state.fruits ? <View style={{ backgroundColor: RkTheme.current.colors.black }}>
+          {this.state.fruits ? <View style={{ backgroundColor: RkTheme.current.colors.yellow }}>
           <ScrollView automaticallyAdjustContentInsets={false}
           showsVerticalScrollIndicator={false} style={s.list} 
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -148,7 +151,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />        
           </ScrollView></View> : null }
 
-          {this.state.grains ? <View style={{ backgroundColor: RkTheme.current.colors.darkblue }}>
+          {this.state.grains ? <View style={{ backgroundColor: RkTheme.current.colors.red }}>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -158,7 +161,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />   
           </ScrollView></View> : null }
 
-          {this.state.desserts ? <View style={{ backgroundColor: RkTheme.current.colors.grey }}>
+          {this.state.desserts ? <View style={{ backgroundColor: RkTheme.current.colors.success }}>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -168,10 +171,6 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />  
           </ScrollView></View> : null }
 
-          </View>
-
-          <View>
-            <Count results={this.state.selectedIngredients}/>
           </View>
 
       </View>
@@ -200,10 +199,10 @@ const s = StyleSheet.create({
   category: {
     fontSize: 21,
     fontWeight: 'bold',
-    paddingVertical: 25,
+    paddingVertical: 10,
     textAlign:  'center', 
-    color: RkTheme.current.colors.black,
-    backgroundColor: '#fff',
+    color: '#fff',
+    backgroundColor: 'rgba(0,0,0,0.05)',
   },
     spinner: {
     flex: 1,

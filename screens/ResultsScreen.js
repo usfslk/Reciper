@@ -89,7 +89,7 @@ export default class ResultsScreen extends Component {
 const s = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#F7F7F7',
   },
   spinner: {
     flex: 1,

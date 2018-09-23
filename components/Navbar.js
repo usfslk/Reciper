@@ -26,7 +26,7 @@ export default class Navbar extends React.Component {
 const s = StyleSheet.create({
   navbar: {
     height: 100, 
-    backgroundColor: '#000', 
+    backgroundColor: '#004eaf', 
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

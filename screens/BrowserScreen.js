@@ -77,7 +77,8 @@ componentDidMount() {
         ref={(popupDialog) => { this.popupSuccess
          = popupDialog; }}
       >
-        <View>
+        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }} >
+        <Image source={require('../assets/images/mark.png')} style={{marginRight: 10}} /> 
           <Text>Success</Text>
         </View>
       </PopupDialog>
@@ -109,7 +110,7 @@ componentDidMount() {
 
 const s = StyleSheet.create({
   container: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#F7F7F7',
     alignItems: 'center',
     justifyContent: 'space-between',
   },

@@ -15,7 +15,7 @@ export default Count
 
 const s = StyleSheet.create({
   count: {
-    backgroundColor: RkTheme.current.colors.white,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -24,7 +24,7 @@ const s = StyleSheet.create({
     fontWeight: '200',
     fontSize: 12,
     paddingVertical: 10,
-    color:  RkTheme.current.colors.darkgrey,
+    color: '#000',
   }
 
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createSwitchNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 
@@ -10,63 +11,47 @@ import BrowserScreen from '../screens/BrowserScreen';
 import FavScreen from '../screens/FavScreen';
 
 import { RkTheme } from 'react-native-ui-kitten';
+import {  Icon } from 'react-native-elements';
 
-
-const HomeStack = createStackNavigator({
-  HomeScreen: HomeScreen,
-});
-
-const ResultsStack = createStackNavigator({
-  ResultsScreen: ResultsScreen,
-  BrowserScreen: BrowserScreen,
-});
-
-const FavStack = createStackNavigator({
-  FavScreen: FavScreen,
-});
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Dashboard',
-  tabBarOptions: {showLabel: false, style: { borderTopWidth: 0, backgroundColor: '#fff'}},
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={'dashboard'}
-    />
-  ),
-};
-
-ResultsStack.navigationOptions = {
-  tabBarLabel: 'Search',
-  tabBarOptions: {showLabel: false, style: { borderTopWidth: 0, backgroundColor: '#fff'}},
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={'restaurant'}
-    />
-  ),
-};
-
-FavStack.navigationOptions = {
-  tabBarLabel: 'Favorites',
-  tabBarOptions: {showLabel: false, style: { borderTopWidth: 0, backgroundColor: '#fff'}},
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={'favorite'}
-    />
-  ),
-};
-
-
-
-export default createBottomTabNavigator(
+export default createMaterialBottomTabNavigator(
   {
-    Home: HomeStack,
-    Results: ResultsStack,
-    Favorites: FavStack
-  },
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarLabel: 'Dashboard',
+        tabBarColor: RkTheme.current.colors.white,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon size={20} name={'dashboard'} />
+        )
+      }
+    },
+    ResultsScreen: {
+      screen: ResultsScreen,
+      navigationOptions: {
+        tabBarLabel: 'Results',
+        tabBarColor: RkTheme.current.colors.white,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon size={20}  name={'restaurant'}/>
+        )
+      }
+    },
+    FavScreen: {
+      screen: FavScreen,
+      navigationOptions: {
+        tabBarLabel: 'Favorites',
+        tabBarColor: RkTheme.current.colors.white,
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Icon size={20}  name={'favorite'}  />
+        )
+      }
+    }
+  }, 
   {
-    /* Other configuration remains unchanged */
+    shifting: true,
+    activeTintColor: RkTheme.current.colors.black,
+    barStyle: {
+      height: 55
+    },
+
   }
 );

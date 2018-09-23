@@ -66,8 +66,16 @@ this.setState({loading: true})
         </Text></View>
          : null }
 
+      {this.state.loading ? 
+      <View style={s.spinner}>
+      <Image style={{width: 25, height: 25}}
+      source={require('../assets/loading.gif')}
+      /> 
+      </View>
+      : null }
+
         {this.state.loaded ?
-         <FlatList style={{marginVertical: 15}}
+         <FlatList style={{marginVertical: 15 }}
           data={this.state.favoritesList}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => item.link}
@@ -91,7 +99,7 @@ this.setState({loading: true})
 
 const s = StyleSheet.create({
 container: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#F7F7F7',
     flex: 1,
 },
 favtext: {
@@ -133,7 +141,11 @@ emptytext: {
   paddingVertical: 50,
   textAlign:  'center', 
   fontSize: 18
-}
+},
+spinner:{
+  alignSelf: 'center',
+  marginVertical: 50,
+},
 });
   
 export default withNavigation(Favorites);
