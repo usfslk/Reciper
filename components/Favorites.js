@@ -6,11 +6,11 @@ import React, { Component } from 'react';
     Image,
     StyleSheet,
     FlatList,
+    Alert
   } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { RkTheme, RkButton, RkCard, RkText, rkCardContent, rkCardImg, rkCardFooter, RkTextInput} from 'react-native-ui-kitten';
 import firebase from 'firebase';
-import Icon from 'react-native-elements';
 
 console.ignoredYellowBox = ['Setting a timer'];
 
@@ -41,7 +41,6 @@ this.setState({loading: true})
         keys.push(a)
     }
     this.setState({
-        userfav : snapshot.val(),
         favoritesList:favoritesList,
         keys:keys,
         loaded: true,
@@ -51,6 +50,13 @@ this.setState({loading: true})
   if (this.state.favoritesList.length = 0)
       this.setState({empty: true})
  
+}
+
+delete() {
+   Alert.alert(
+  'Alert Title',
+  'My Alert Msg',
+  )
 }
 
     
@@ -82,11 +88,18 @@ this.setState({loading: true})
           renderItem={({ item, index }) => (
 
             <View style={s.card} >
-            <TouchableOpacity
-              onPress={() => navigate('BrowserScreen', { link: item.link, title: item.title.trim() })}
-              underlayColor='red'>
-                    <Text style={s.header}>{item.title}</Text>
-            </TouchableOpacity>
+              <TouchableOpacity onPress={() =>
+              navigate('BrowserScreen', 
+              { link: item.link, title: item.title.trim() })
+              }>
+              <Text style={s.header}>{item.title}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => this.delete()} >
+              <Image style={s.delete} 
+              source={require('../assets/images/delete.png')}
+              />
+              </TouchableOpacity>
             </View>
 
           )}/>
@@ -121,7 +134,7 @@ ing: {
    textAlign: 'left',
 }, 
 header: {
-    fontSize: 20,
+    fontSize: 17,
 },
 card: {
     backgroundColor: '#fff',
@@ -129,8 +142,11 @@ card: {
     paddingVertical: 10,
     paddingHorizontal: 30,
     marginHorizontal: 25,
-    borderRadius: 8
-},
+    borderRadius: 8,
+    flexDirection: 'row' ,
+   alignItems: 'center',
+   justifyContent: 'space-between'
+ },
 empty: {
   backgroundColor: '#fff',
   marginVertical: 25,
@@ -146,6 +162,10 @@ spinner:{
   alignSelf: 'center',
   marginVertical: 50,
 },
+delete: {
+  width: 25,
+  height: 25
+}
 });
   
 export default withNavigation(Favorites);
