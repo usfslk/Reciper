@@ -29,6 +29,7 @@ class Favorites extends Component {
       }
      
 componentDidMount = () => {
+
 const { currentUser } = firebase.auth();
 this.setState({loading: true})
     firebase.database().ref(`/users/${currentUser.uid}/favorites/`)
@@ -40,26 +41,23 @@ this.setState({loading: true})
         favoritesList.push(obj[a])
         keys.push(a)
     }
-    this.setState({
-        favoritesList:favoritesList,
-        keys:keys,
-        loaded: true,
-        loading: false,
-    })
-    });
-  if (this.state.favoritesList.length = 0)
-      this.setState({empty: true})
- 
+     this.setState({
+    favoritesList:favoritesList,
+    keys:keys,
+    loading: false,
+    loaded: true,
+ }, () => {
+    if (this.state.favoritesList.length === 0)
+        this.setState({loading: false, empty: true})
+   });
+ });
 }
 
-delete() {
-   Alert.alert(
-  'Alert Title',
-  'My Alert Msg',
-  )
-}
-
-    
+delete(index) {    
+    const { currentUser } = firebase.auth();
+    firebase.database().ref(`/users/${currentUser.uid}/favorites/${this.state.keys[index]}`)
+        .remove()
+}    
     render() {
         const { navigate } = this.props.navigation;
       return (
@@ -95,7 +93,7 @@ delete() {
               <Text style={s.header}>{item.title}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => this.delete()} >
+              <TouchableOpacity onPress={() => this.delete(index)} >
               <Image style={s.delete} 
               source={require('../assets/images/delete.png')}
               />
