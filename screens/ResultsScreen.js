@@ -31,7 +31,7 @@ export default class ResultsScreen extends Component {
     Values = selectedValues.join(',');
     ValuesInString = Values.replace(' ',"+")  
     let url = "http://www.recipepuppy.com/api/?i=" + ValuesInString
-    this.setState({ loading: true  });
+    this.setState({ loading: true, loaded: false });
     Keyboard.dismiss()
 
       fetch(url)

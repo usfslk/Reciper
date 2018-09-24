@@ -108,20 +108,18 @@ export default class HomeScreen extends Component {
 
         <View style={s.divider} />
 
-
           <View style={{flex:1}}>
 
-          {this.state.dairy ? <View style={{ backgroundColor: RkTheme.current.colors.yellow }}>
+          {this.state.dairy ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           showsVerticalScrollIndicator={false} style={s.list} 
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
           <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInUpBig">Dairy</Animatable.Text>
-          <SelectMultiple items={dairy} selectedLabelStyle={{fontFamily: 'bold' }}
-          selectedItems={this.state.selectedIngredients} rowStyle={{borderBottomColor: '#fff', marginVertical: -5}}
-          onSelectionsChange={this.onSelectionsChange} />        
+          <SelectMultiple items={dairy} selectedLabelStyle={{fontFamily: 'bold' }} 
+          selectedItems={this.state.selectedIngredients} onSelectionsChange={this.onSelectionsChange} />        
           </ScrollView></View> : null }
 
-          {this.state.meats ? <View style={{ backgroundColor: RkTheme.current.colors.red }}>
+          {this.state.meats ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -131,7 +129,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />   
           </ScrollView></View> : null }
 
-          {this.state.vegetables ? <View style={{ backgroundColor: RkTheme.current.colors.success }}>
+          {this.state.vegetables ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -141,7 +139,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />  
           </ScrollView></View> : null }
 
-          {this.state.fruits ? <View style={{ backgroundColor: RkTheme.current.colors.yellow }}>
+          {this.state.fruits ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           showsVerticalScrollIndicator={false} style={s.list} 
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -151,7 +149,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />        
           </ScrollView></View> : null }
 
-          {this.state.grains ? <View style={{ backgroundColor: RkTheme.current.colors.red }}>
+          {this.state.grains ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -161,7 +159,7 @@ export default class HomeScreen extends Component {
           onSelectionsChange={this.onSelectionsChange} />   
           </ScrollView></View> : null }
 
-          {this.state.desserts ? <View style={{ backgroundColor: RkTheme.current.colors.success }}>
+          {this.state.desserts ? <View>
           <ScrollView automaticallyAdjustContentInsets={false}
           style={s.list} showsVerticalScrollIndicator={false}
           contentInset={{top:0, bottom: this.state.contentInsetBottom }} > 
@@ -179,18 +177,18 @@ export default class HomeScreen extends Component {
 }
 const s = StyleSheet.create({
   container: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#f7f7f7',
     flex:1
   },
   list: {
     marginHorizontal: 0,
-       marginTop: 5,
+    marginBottom: 0,
   },
   btnblock: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
  },
   mainheader: {
     fontWeight: 'bold',
@@ -201,8 +199,8 @@ const s = StyleSheet.create({
     fontWeight: 'bold',
     paddingVertical: 10,
     textAlign:  'center', 
-    color: '#fff',
-    backgroundColor: 'rgba(0,0,0,0.05)',
+    color: '#000',
+    backgroundColor: '#fff',
   },
     spinner: {
     flex: 1,
