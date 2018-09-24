@@ -11,7 +11,7 @@ With your mobile phone, you can scan the QR code in the link below to load this 
 
 https://expo.io/@usfslk/reciper
 
-![Mockup](https://i.imgur.com/GcwrCUH.png)
+![Mockup](https://i.imgur.com/Jp5IJxd.jpg)
 
 ## Development
 
