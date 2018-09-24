@@ -13,45 +13,57 @@ import FavScreen from '../screens/FavScreen';
 import { RkTheme } from 'react-native-ui-kitten';
 import {  Icon } from 'react-native-elements';
 
-export default createMaterialBottomTabNavigator(
-  {
-    HomeScreen: {
-      screen: HomeScreen,
-      navigationOptions: {
+const HomeStack = createStackNavigator({
+  HomeScreen: HomeScreen,
+});
+
+const ResultsStack = createStackNavigator({
+  ResultsScreen: ResultsScreen,
+  BrowserScreen: BrowserScreen,
+});
+
+const FavStack = createStackNavigator({
+  FavScreen: FavScreen,
+});
+
+HomeStack.navigationOptions = {
         tabBarLabel: 'Dashboard',
         tabBarColor: RkTheme.current.colors.white,
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon size={20} name={'dashboard'} />
         )
-      }
-    },
-    ResultsScreen: {
-      screen: ResultsScreen,
-      navigationOptions: {
+};
+
+ResultsStack.navigationOptions = {
         tabBarLabel: 'Results',
         tabBarColor: RkTheme.current.colors.white,
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon size={20}  name={'restaurant'}/>
         )
-      }
-    },
-    FavScreen: {
-      screen: FavScreen,
-      navigationOptions: {
-        tabBarLabel: 'Favorites',
+};
+
+FavStack.navigationOptions = {
+tabBarLabel: 'Favorites',
         tabBarColor: RkTheme.current.colors.white,
         tabBarIcon: ({ tintColor, focused }) => (
           <Icon size={20}  name={'favorite'}  />
         )
-      }
-    }
-  }, 
+};
+
+
+
+export default createMaterialBottomTabNavigator(
   {
+    Home: HomeStack,
+    Results: ResultsStack,
+    Favorites: FavStack
+  },
+  {
+   
     shifting: true,
     activeTintColor: RkTheme.current.colors.black,
     barStyle: {
       height: 55
     },
-
   }
 );
