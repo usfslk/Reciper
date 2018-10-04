@@ -1,5 +1,5 @@
 # Reciper 
-![CI](https://forthebadge.com/images/badges/winter-is-coming.svg)
+![Badge](https://forthebadge.com/images/badges/powered-by-electricity.svg)
 
 ![Logo](https://i.stack.imgur.com/qFjUs.png)
 
@@ -29,5 +29,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Copyright (c) [2018] MIT
 
-![Badge](https://forthebadge.com/images/badges/powered-by-electricity.svg)
 
