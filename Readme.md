@@ -1,6 +1,12 @@
 <p align="center">
  # Reciper 
+</p>
+
+<p align="center">
 ![Badge](https://forthebadge.com/images/badges/gluten-free.svg)
+</p>
+
+<p align="center">
  <img src="https://i.stack.imgur.com/qFjUs.png" alt="Logo">
 </p>
 
