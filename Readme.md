@@ -1,10 +1,12 @@
-<p align="center">
+<div align="center">
  #Reciper 
-</p>
+</div>
 
 <div align="center">
 <img src="https://forthebadge.com/images/badges/gluten-free.svg" alt="Logo">
 </div>
+
+<br/>
 
 <p align="center">
  <img src="https://i.stack.imgur.com/qFjUs.png" alt="Logo">
