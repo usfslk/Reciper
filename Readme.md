@@ -1,5 +1,5 @@
 # Reciper 
-![Badge](https://forthebadge.com/images/badges/powered-by-electricity.svg)
+![Badge](https://forthebadge.com/images/badges/gluten-free.svg)
 
 ![Logo](https://i.stack.imgur.com/qFjUs.png)
 
