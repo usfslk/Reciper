@@ -1,6 +1,8 @@
 <div align="center">
- #Reciper 
+<h2>Reciper</h2>
 </div>
+
+<br/>
 
 <div align="center">
 <img src="https://forthebadge.com/images/badges/gluten-free.svg" alt="Logo">
