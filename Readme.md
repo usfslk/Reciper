@@ -1,7 +1,9 @@
 # Reciper 
 ![Badge](https://forthebadge.com/images/badges/gluten-free.svg)
 
-<img align="center" src="https://i.stack.imgur.com/qFjUs.png" alt="Logo">
+<p align="center">
+ <img src="https://i.stack.imgur.com/qFjUs.png" alt="Logo">
+</p>
 
 Everyone needs a helping hand in the kitchen and that's exactly what our 'Recipe Builder' does, it's a recipe search engine that lets you search by ingredients you have at home. Find thousands of recipes you can make right now.
 
