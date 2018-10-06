@@ -1,10 +1,10 @@
 <p align="center">
- # Reciper 
+ #Reciper 
 </p>
 
-<p align="center">
-![Badge](https://forthebadge.com/images/badges/gluten-free.svg)
-</p>
+<div align="center">
+<img src="https://forthebadge.com/images/badges/gluten-free.svg" alt="Logo">
+</div>
 
 <p align="center">
  <img src="https://i.stack.imgur.com/qFjUs.png" alt="Logo">
