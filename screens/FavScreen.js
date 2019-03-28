@@ -6,6 +6,7 @@ import { Text } from 'react-native-elements';
 import firebase from '../components/config';
 import Favorites from '../components/Favorites';
 import PopupDialog from 'react-native-popup-dialog';
+import { AdMobBanner } from 'expo';
 
 class FavScreen extends Component {
   static navigationOptions = { header: null };
@@ -82,6 +83,12 @@ class FavScreen extends Component {
         />
         <Navbar title='Favorites' name="exit-to-app" function="" handle={this.onLogOut} type="icon" />
 
+        <AdMobBanner
+					adSize="smartBanner"
+					adUnitID="ca-app-pub-8573101599140905/2580991187"
+					testDeviceID="EMULATOR"
+				/>
+        
         {this.state.loading ?
           <View style={s.spinner}>
             <Image style={{ width: 25, height: 25 }}

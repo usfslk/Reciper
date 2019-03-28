@@ -4,6 +4,7 @@ import { StyleSheet, View, ScrollView, Dimensions, StatusBar } from 'react-nativ
 import SelectMultiple from 'react-native-select-multiple';
 import * as Animatable from 'react-native-animatable';
 import { RkButton } from 'react-native-ui-kitten';
+import { AdMobBanner } from 'expo';
 
 import Navbar from '../components/Navbar';
 import Theme from '../constants/Theme';
@@ -168,6 +169,12 @@ export default class HomeScreen extends Component {
             </ScrollView></View> : null}
 
         </View>
+
+        <AdMobBanner
+					adSize="smartBanner"
+					adUnitID="ca-app-pub-8573101599140905/2580991187"
+					testDeviceID="EMULATOR"
+				/>
 
       </View>
     );

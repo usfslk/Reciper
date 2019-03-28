@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, WebView, StatusBar, TouchableOpacity, Alert } from 'react-native';
 import firebase from '../components/config';
 import { withNavigation } from 'react-navigation';
-
+import { AdMobBanner } from 'expo';
 import Navbar from '../components/Navbar';
 import PopupDialog from 'react-native-popup-dialog';
 
@@ -67,8 +67,8 @@ class BrowserScreen extends React.Component {
         <Navbar title={this.state.title} name="close" function="" handle={() => goBack(null)} type="icon" />
         <PopupDialog height={150} width={0.8} dialogStyle={{ justifyContent: 'center', alignItems: 'center' }}
           ref={(popupDialog) => {
-          this.popupSuccess
-            = popupDialog;
+            this.popupSuccess
+              = popupDialog;
           }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }} >
@@ -94,9 +94,17 @@ class BrowserScreen extends React.Component {
           </TouchableOpacity>
           : null}
 
+
         <WebView
           source={{ uri: this.state.source }}
         />
+
+        <AdMobBanner
+          adSize="smartBanner"
+          adUnitID="ca-app-pub-8573101599140905/2580991187"
+          testDeviceID="EMULATOR"
+        />
+
       </View>
     );
   }

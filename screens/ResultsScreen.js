@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, Keyboard, StatusBar } from 'react-native';
-
-
+import { AdMobBanner } from 'expo';
 import Navbar from '../components/Navbar';
 import Results from '../components/Results';
 
@@ -64,6 +63,12 @@ export default class ResultsScreen extends Component {
           animated
         />
         <Navbar title="Results" name="refresh" function="" handle={() => this.apiCall()} type="icon" />
+
+        <AdMobBanner
+					adSize="smartBanner"
+					adUnitID="ca-app-pub-8573101599140905/2580991187"
+					testDeviceID="EMULATOR"
+				/>
 
         {this.state.loading ?
           <View style={s.spinner}>
