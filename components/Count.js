@@ -1,14 +1,13 @@
 import React from 'react';
-import {StyleSheet, Text, View, Keyboard, FlatList } from 'react-native';
-import { RkTheme, RkButton } from 'react-native-ui-kitten';
-import {  Icon, SearchBar } from 'react-native-elements';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Count = (props) =>  {
-    return (
-      <View style={s.count}>
+
+const Count = (props) => {
+  return (
+    <View style={s.count}>
       <Text style={s.text} >You selected {props.results.length} ingredients!</Text>
-      </View>
-    );
+    </View>
+  );
 }
 
 export default Count
@@ -26,5 +25,4 @@ const s = StyleSheet.create({
     paddingVertical: 10,
     color: '#000',
   }
-
 });

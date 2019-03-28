@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, Keyboard, FlatList } from 'react-native';
-import { RkTheme, RkButton } from 'react-native-ui-kitten';
-import {  Icon } from 'react-native-elements';
+import {StyleSheet, Text, View } from 'react-native';
+import { RkTheme } from 'react-native-ui-kitten';
 
 const renderList = (label, style) => {
   return (
@@ -30,6 +29,5 @@ const s = StyleSheet.create({
     paddingVertical: 10,
     color:  RkTheme.current.colors.darkgrey,
   }
-
 });
 
