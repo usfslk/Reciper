@@ -28,6 +28,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.usfslk.reciper",
+      "permissions": [
+       "READ_PHONE_STATE"
+     ]
     }
   }
 }
