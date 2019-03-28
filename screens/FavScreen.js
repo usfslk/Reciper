@@ -168,12 +168,10 @@ const s = StyleSheet.create({
   },
   textbutton: {
     fontSize: 18,
-    backgroundColor: '#000',
-    paddingHorizontal: 60,
-    paddingVertical: 15,
+    paddingHorizontal: 50,
+    paddingVertical: 10,
     textAlign: 'center',
-    color: '#fff',
-    borderRadius: 5,
+    color: '#fcfcfc',
   },
   infoheader: {
     fontSize: 18,
@@ -186,13 +184,16 @@ const s = StyleSheet.create({
   },
   button: {
     marginVertical: 5,
-    marginHorizontal: 25
+    marginHorizontal: 25,
+    backgroundColor: '#004eaf',
+    borderRadius: 25
   },
   authbtn: {
     flexDirection: 'row',
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     marginVertical: 7,
+    marginHorizontal: 25,
   },
   spinner: {
     alignSelf: 'center',
