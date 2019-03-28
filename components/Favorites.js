@@ -6,10 +6,8 @@ import React, { Component } from 'react';
     Image,
     StyleSheet,
     FlatList,
-    Alert
   } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { RkTheme, RkButton, RkCard, RkText, rkCardContent, rkCardImg, rkCardFooter, RkTextInput} from 'react-native-ui-kitten';
 import firebase from 'firebase';
 
 console.ignoredYellowBox = ['Setting a timer'];
