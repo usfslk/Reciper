@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import * as Animatable from 'react-native-animatable';
 
@@ -10,7 +10,6 @@ class Results extends React.Component {
 			query: '',
 		}
 	}
-
 	componentDidMount() {
 		this.refs.listRef.scrollToOffset({ x: 0, y: 0, animated: true })
 	}
@@ -41,7 +40,6 @@ class Results extends React.Component {
 		);
 	}
 }
-
 
 const s = StyleSheet.create({
 	flat: {

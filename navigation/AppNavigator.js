@@ -1,17 +1,16 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { createSwitchNavigator, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+
+import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
-import TabBarIcon from '../components/TabBarIcon';
+import { RkTheme } from 'react-native-ui-kitten';
+import { Icon } from 'react-native-elements';
+import { ifIphoneX } from 'react-native-iphone-x-helper';
 
 import HomeScreen from '../screens/HomeScreen';
 import ResultsScreen from '../screens/ResultsScreen';
 import BrowserScreen from '../screens/BrowserScreen';
 import FavScreen from '../screens/FavScreen';
-
-import { RkTheme } from 'react-native-ui-kitten';
-import {  Icon } from 'react-native-elements';
 
 const HomeStack = createStackNavigator({
   HomeScreen: HomeScreen,
@@ -27,30 +26,28 @@ const FavStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-        tabBarLabel: 'Dashboard',
-        tabBarColor: RkTheme.current.colors.white,
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon size={20} name={'dashboard'} />
-        )
+  tabBarLabel: 'Dashboard',
+  tabBarColor: RkTheme.current.colors.white,
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Icon size={20} name={'dashboard'} />
+  )
 };
 
 ResultsStack.navigationOptions = {
-        tabBarLabel: 'Results',
-        tabBarColor: RkTheme.current.colors.white,
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon size={20}  name={'restaurant'}/>
-        )
+  tabBarLabel: 'Results',
+  tabBarColor: RkTheme.current.colors.white,
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Icon size={20} name={'restaurant'} />
+  )
 };
 
 FavStack.navigationOptions = {
-tabBarLabel: 'Favorites',
-        tabBarColor: RkTheme.current.colors.white,
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon size={20}  name={'favorite'}  />
-        )
+  tabBarLabel: 'Favorites',
+  tabBarColor: RkTheme.current.colors.white,
+  tabBarIcon: ({ tintColor, focused }) => (
+    <Icon size={20} name={'favorite'} />
+  )
 };
-
-
 
 export default createMaterialBottomTabNavigator(
   {
@@ -59,11 +56,14 @@ export default createMaterialBottomTabNavigator(
     Favorites: FavStack
   },
   {
-   
     shifting: true,
     activeTintColor: RkTheme.current.colors.black,
     barStyle: {
-      height: 55
+      ...ifIphoneX({
+        height: 70,
+      }, {
+          height: 55,
+        })
     },
   }
 );
