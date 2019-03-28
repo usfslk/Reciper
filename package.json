@@ -1,12 +1,14 @@
 {
   "name": "reciper",
+  "version": "3.0.1",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "expo": "^30.0.1",
@@ -24,5 +26,8 @@
     "react-native-ui-kitten": "^3.0.1",
     "react-navigation": "^2.14.2",
     "react-navigation-material-bottom-tabs": "^0.4.0"
+  },
+  "devDependencies": {
+    "react-native-version": "^2.7.0"
   }
 }
