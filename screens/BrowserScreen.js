@@ -101,7 +101,7 @@ class BrowserScreen extends React.Component {
 
         <AdMobBanner
           adSize="smartBanner"
-          adUnitID="ca-app-pub-8573101599140905~8477225822"
+          adUnitID="ca-app-pub-8573101599140905/9082008283"
           testDeviceID="EMULATOR"
         />
 
