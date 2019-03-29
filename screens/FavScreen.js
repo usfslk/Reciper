@@ -85,7 +85,7 @@ class FavScreen extends Component {
 
         <AdMobBanner
 					adSize="smartBanner"
-					adUnitID="ca-app-pub-8573101599140905/2580991187"
+					adUnitID="ca-app-pub-8573101599140905~8477225822"
 					testDeviceID="EMULATOR"
 				/>
         
@@ -122,7 +122,7 @@ class FavScreen extends Component {
       />*/}
 
         {this.state.loggedOut ?
-          <Text style={s.infoheader}>Please create an account or sign in to use this feature</Text>
+          <Text style={s.infoheader}>Please create an account or log in to use this feature</Text>
           : null}
 
         {this.state.loggedOut ?
@@ -149,7 +149,7 @@ class FavScreen extends Component {
             <TouchableOpacity
               style={s.button}
               onPress={this.onLogIn}>
-              <Text style={s.textbutton}>Sign in</Text>
+              <Text style={s.textbutton}>Log in</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

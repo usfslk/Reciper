@@ -173,7 +173,7 @@ export default class HomeScreen extends Component {
 
         <AdMobBanner
           adSize="smartBanner"
-          adUnitID="ca-app-pub-8573101599140905/2580991187"
+          adUnitID="ca-app-pub-8573101599140905~8477225822"
           testDeviceID="EMULATOR"
         />
 

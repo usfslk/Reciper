@@ -128,7 +128,8 @@ const s = StyleSheet.create({
     textAlign: 'left',
   },
   header: {
-    fontSize: 17,
+    fontSize: 16,
+    maxWidth: '90%'
   },
   card: {
     backgroundColor: '#fff',
