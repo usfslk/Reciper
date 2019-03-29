@@ -83,11 +83,14 @@ export default class HomeScreen extends Component {
 
         <Navbar title="Dashboard" function="Submit" type="white" handle={() => this.switcher()} />
 
-        <AdMobBanner
-          adSize="smartBanner"
-          adUnitID="ca-app-pub-8573101599140905/9082008283"
-          testDeviceID="EMULATOR"
-        />
+        <View style={{
+          flexDirection: 'row', justifyContent: 'center', marginVertical: 15
+        }}>
+          <AdMobBanner
+            adSize="largeBanner"
+            adUnitID="ca-app-pub-8573101599140905/9082008283"
+          />
+        </View>
 
         <View>
           <Count results={this.state.selectedIngredients} />

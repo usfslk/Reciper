@@ -99,11 +99,15 @@ class BrowserScreen extends React.Component {
           source={{ uri: this.state.source }}
         />
 
-        <AdMobBanner
+        <View 
+        style={{
+        flexDirection: 'row', justifyContent: 'center', marginVertical: 15
+        }}>
+          <AdMobBanner
           adSize="smartBanner"
           adUnitID="ca-app-pub-8573101599140905/9082008283"
-          testDeviceID="EMULATOR"
-        />
+          />
+        </View>
 
       </View>
     );

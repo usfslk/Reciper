@@ -64,11 +64,14 @@ export default class ResultsScreen extends Component {
         />
         <Navbar title="Results" name="refresh" function="" handle={() => this.apiCall()} type="icon" />
 
+
+        <View style={{
+					flexDirection: 'row', justifyContent: 'center', marginVertical: 15 }}>
         <AdMobBanner
 					adSize="smartBanner"
 					adUnitID="ca-app-pub-8573101599140905/9082008283"
-					testDeviceID="EMULATOR"
 				/>
+        </View>
 
         {this.state.loading ?
           <View style={s.spinner}>
