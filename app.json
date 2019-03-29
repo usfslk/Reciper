@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "reciper",
+    "name": "Reciper",
     "description": "Unlimited recipes for daily inspiration",
-    "slug": "reciper",
+    "slug": "Reciper",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "3.1.1",
+    "version": "3.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "ios": {
@@ -21,7 +21,7 @@
       "permissions": [
         "READ_PHONE_STATE"
       ],
-      "versionCode": 4
+      "versionCode": 5
     },
     "splash": {
       "image": "./assets/splash.png",
