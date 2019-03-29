@@ -83,11 +83,15 @@ class FavScreen extends Component {
         />
         <Navbar title='Favorites' name="exit-to-app" function="" handle={this.onLogOut} type="icon" />
 
-        <AdMobBanner
-					adSize="smartBanner"
+        <View style={{
+					flexDirection: 'row', justifyContent: 'center', marginVertical: 15
+				}}>
+         <AdMobBanner
+					adSize="mediumRectangle"
 					adUnitID="ca-app-pub-8573101599140905/9082008283"
 					testDeviceID="EMULATOR"
 				/>
+        </View>
         
         {this.state.loading ?
           <View style={s.spinner}>

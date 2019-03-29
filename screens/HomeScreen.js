@@ -83,6 +83,12 @@ export default class HomeScreen extends Component {
 
         <Navbar title="Dashboard" function="Submit" type="white" handle={() => this.switcher()} />
 
+        <AdMobBanner
+          adSize="smartBanner"
+          adUnitID="ca-app-pub-8573101599140905/9082008283"
+          testDeviceID="EMULATOR"
+        />
+
         <View>
           <Count results={this.state.selectedIngredients} />
         </View>
@@ -170,12 +176,6 @@ export default class HomeScreen extends Component {
             </ScrollView></View> : null}
 
         </View>
-
-        <AdMobBanner
-          adSize="smartBanner"
-          adUnitID="ca-app-pub-8573101599140905/9082008283"
-          testDeviceID="EMULATOR"
-        />
 
       </View>
     );
