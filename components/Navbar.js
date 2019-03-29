@@ -13,7 +13,7 @@ export default class Navbar extends React.Component {
         <View style={s.inner}>
           <Text style={s.title}>{this.props.title}</Text>
         </View>
-        <Animatable.View easing='ease-out-cubic' duration={1000} animation="pulse" style={s.inner}>
+        <Animatable.View easing='ease-out-cubic' duration={1000} animation="pulse" style={s.innerButton}>
           <RkButton onPress={this.props.handle} rkType={this.props.type}>{this.props.function}<Icon
             name={this.props.name} color='#fcfcfc' /></RkButton>
         </Animatable.View>
@@ -24,18 +24,27 @@ export default class Navbar extends React.Component {
 
 const s = StyleSheet.create({
   navbar: {
-    height: 100 + getStatusBarHeight(),
+    height: 60 + getStatusBarHeight(),
     backgroundColor: '#004eaf',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexWrap: 'nowrap',
+    paddingTop: 25,
+    paddingBottom: 12.5,
+
   },
   title: {
     color: '#F0F0F0',
-    fontSize: 20,
+    fontSize: 18,
+    flexShrink:1
   },
   inner: {
-    marginTop: 20,
-    marginHorizontal: 20
-  }
+    marginLeft: 25,
+    maxWidth: '70%'
+  },
+  innerButton: {
+    marginRight: 25,
+  },
+
 });

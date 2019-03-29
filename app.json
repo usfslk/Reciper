@@ -21,7 +21,7 @@
       "permissions": [
         "READ_PHONE_STATE"
       ],
-      "versionCode": 1
+      "versionCode": 3
     },
     "splash": {
       "image": "./assets/splash.png",

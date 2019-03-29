@@ -88,7 +88,7 @@ export default class HomeScreen extends Component {
         </View>
 
         <View style={s.divider} />
-        <Animatable.View easing='ease-out-circ' duration={500} animation="fadeInDownBig" style={s.btnblock}>
+        <Animatable.View easing='ease-out-circ' duration={500} animation="fadeInLeftBig" style={s.btnblock}>
 
           <RkButton onPress={this.dairy.bind(this)} rkType={'category'}>Dairy</RkButton>
           <RkButton onPress={this.meats.bind(this)} rkType={'category'}>Meats</RkButton>
@@ -97,7 +97,7 @@ export default class HomeScreen extends Component {
         </Animatable.View>
         <View style={s.divider} />
 
-        <Animatable.View easing='ease-out-circ' duration={500} animation="fadeInDownBig" style={s.btnblock}>
+        <Animatable.View easing='ease-out-circ' duration={500} animation="fadeInLeftBig" style={s.btnblock}>
 
           <RkButton onPress={this.fruits.bind(this)} rkType={'category'}>Fruits</RkButton>
           <RkButton onPress={this.grains.bind(this)} rkType={'category'}>Grains</RkButton>
@@ -113,16 +113,17 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Dairy</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Dairy</Animatable.Text>
               <SelectMultiple items={dairy} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+          </View> : null}
 
           {this.state.meats ? <View>
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Meats</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Meats</Animatable.Text>
               <SelectMultiple items={meats} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
@@ -132,7 +133,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Vegetables</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Vegetables</Animatable.Text>
               <SelectMultiple items={vegetables} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
@@ -142,7 +143,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Fruits</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Fruits</Animatable.Text>
               <SelectMultiple items={fruits} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
@@ -152,7 +153,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Grains and Bakery</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Grains and Bakery</Animatable.Text>
               <SelectMultiple items={grains} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
@@ -162,7 +163,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInDownBig">Desserts</Animatable.Text>
+              <Animatable.Text style={s.category} easing='ease-out-circ' duration={600} animation="fadeInLeftBig">Desserts</Animatable.Text>
               <SelectMultiple items={desserts} selectedLabelStyle={{ fontFamily: 'bold' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
@@ -171,10 +172,10 @@ export default class HomeScreen extends Component {
         </View>
 
         <AdMobBanner
-					adSize="smartBanner"
-					adUnitID="ca-app-pub-8573101599140905/2580991187"
-					testDeviceID="EMULATOR"
-				/>
+          adSize="smartBanner"
+          adUnitID="ca-app-pub-8573101599140905/2580991187"
+          testDeviceID="EMULATOR"
+        />
 
       </View>
     );
