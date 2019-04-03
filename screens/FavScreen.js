@@ -43,6 +43,7 @@ class FavScreen extends Component {
       .then(this.onSuccess.bind(this))
       .catch(() => {
         this.popupError.show();
+        this.setState({ loading: false });
       })
   };
 
@@ -84,13 +85,16 @@ class FavScreen extends Component {
         <Navbar title='Favorites' name="exit-to-app" function="" handle={this.onLogOut} type="icon" />
 
         <View style={{
-					flexDirection: 'row', justifyContent: 'center', marginVertical: 15,  }}>
-         <AdMobBanner
-					adSize="mediumRectangle"
-					adUnitID="ca-app-pub-8573101599140905/4705314737"
-				/>
+          flexDirection: 'row', justifyContent: 'center', marginVertical: 15
+        }}>
+          <AdMobBanner
+            adSize="mediumRectangle"
+            adUnitID="ca-app-pub-8573101599140905/4705314737"
+          />
         </View>
-        
+
+
+
         {this.state.loading ?
           <View style={s.spinner}>
             <Image style={{ width: 25, height: 25 }}
@@ -110,8 +114,9 @@ class FavScreen extends Component {
         <PopupDialog height={150} width={0.8} dialogStyle={{ justifyContent: 'center', alignItems: 'center' }}
           ref={(popupDialog) => { this.popupError = popupDialog; }}
         >
-          <View>
-            <Text style={{ textAlign: 'center' }} >The username and password you entered did not match our records. Please double-check and try again.</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }} >
+            <Image source={require('../assets/images/error.png')}/>
+            <Text style={{marginTop:25, marginHorizontal: 25}}>The username and password you entered did not match our records. Please double-check and try again.</Text>
           </View>
         </PopupDialog>
 
@@ -176,17 +181,18 @@ const s = StyleSheet.create({
     backgroundColor: '#fff',
   },
   textbutton: {
-    fontSize: 18,
+    fontSize: 14,
     paddingHorizontal: 50,
     paddingVertical: 10,
     textAlign: 'center',
     color: '#fcfcfc',
   },
   infoheader: {
-    fontSize: 18,
+    fontSize: 14,
     paddingVertical: 45,
     textAlign: 'center',
-    marginHorizontal: 25
+    marginHorizontal: 25,
+    fontFamily: 'light'
   },
   loading: {
     margin: 40,

@@ -13,6 +13,7 @@ export default class ResultsScreen extends Component {
     super(props)
     this.state = {
       loading: false,
+      loaded: false,
     }
   }
 
@@ -21,12 +22,12 @@ export default class ResultsScreen extends Component {
     const passedData = navigation.getParam('passedData', []);
 
     let selectedIngredients = passedData;
-
     selectedValues = selectedIngredients.map((ingredient) => ingredient.value)
     Values = selectedValues.join(',');
     ValuesInString = Values.replace(' ', "+")
+
     let url = "http://www.recipepuppy.com/api/?i=" + ValuesInString
-    this.setState({ loading: true, loaded: false });
+    this.setState({ loading: true });
     Keyboard.dismiss()
 
     fetch(url)
@@ -64,15 +65,6 @@ export default class ResultsScreen extends Component {
         />
         <Navbar title="Results" name="refresh" function="" handle={() => this.apiCall()} type="icon" />
 
-
-        <View style={{
-					flexDirection: 'row', justifyContent: 'center', marginVertical: 15 }}>
-        <AdMobBanner
-					adSize="smartBanner"
-					adUnitID="ca-app-pub-8573101599140905/9082008283"
-				/>
-        </View>
-
         {this.state.loading ?
           <View style={s.spinner}>
             <Image style={{ width: 25, height: 25 }}
@@ -84,6 +76,17 @@ export default class ResultsScreen extends Component {
         {this.state.loaded ?
           <Results results={this.state.userdata} />
           : null}
+
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+          <AdMobBanner
+            adSize="smartBanner"
+            adUnitID="ca-app-pub-8573101599140905/4705314737"
+          />
+        </View>
+
 
       </View>
     );

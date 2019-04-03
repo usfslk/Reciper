@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, WebView, StatusBar, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, WebView, StatusBar, TouchableWithoutFeedback, Alert } from 'react-native';
 import firebase from '../components/config';
 import { withNavigation } from 'react-navigation';
 import { AdMobBanner } from 'expo';
@@ -78,20 +78,22 @@ class BrowserScreen extends React.Component {
         </PopupDialog>
 
         {this.state.loggedOut ?
-          <TouchableOpacity
-            style={s.button}
+          <TouchableWithoutFeedback
             onPress={() => navigate('FavScreen')}
           >
-            <Text style={s.textbutton}>Save to Favorites</Text>
-          </TouchableOpacity>
+            <View style={s.button}>
+              <Text style={s.textbutton}>Save to Favorites</Text>
+            </View>
+          </TouchableWithoutFeedback>
           : null}
 
         {this.state.loggedIn ?
-          <TouchableOpacity
-            style={s.button}
+          <TouchableWithoutFeedback
             onPress={this.saveData}>
-            <Text style={s.textbutton}>Save to Favorites</Text>
-          </TouchableOpacity>
+            <View style={s.button}>
+              <Text style={s.textbutton}>Save to Favorites</Text>
+            </View>
+          </TouchableWithoutFeedback>
           : null}
 
 
@@ -99,13 +101,13 @@ class BrowserScreen extends React.Component {
           source={{ uri: this.state.source }}
         />
 
-        <View 
-        style={{
-        flexDirection: 'row', justifyContent: 'center', marginVertical: 15
-        }}>
+        <View
+          style={{
+            flexDirection: 'row', justifyContent: 'center',
+          }}>
           <AdMobBanner
-          adSize="smartBanner"
-          adUnitID="ca-app-pub-8573101599140905/9082008283"
+            adSize="smartBanner"
+            adUnitID="ca-app-pub-8573101599140905/4705314737" 
           />
         </View>
 
@@ -135,12 +137,17 @@ const s = StyleSheet.create({
     color: '#fff'
   },
   button: {
-    backgroundColor: '#f0f0f0',
-    paddingVertical: 10
+    backgroundColor: '#004eaf',
+    paddingBottom: 15
   },
   textbutton: {
-    fontWeight: 'bold',
-    textAlign: 'center'
+    fontFamily: 'bold',
+    textAlign: 'center',
+    color: '#fcfcfc',
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    borderRadius: 99,
+    marginHorizontal: 100,
+    paddingVertical: 5
   }
 });
 

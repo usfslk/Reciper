@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableWithoutFeedback } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import * as Animatable from 'react-native-animatable';
+import Image from 'react-native-image-progress';
+import * as Progress from 'react-native-progress';
 
 class Results extends React.Component {
 	constructor(props) {
@@ -17,7 +19,7 @@ class Results extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<Animatable.View style={s.flat} easing='ease-out-cubic' duration={1000} animation="slideInUp" >
+			<Animatable.View style={s.flat} easing='ease-in' duration={800} animation="fadeIn" >
 
 				<FlatList
 					ref="listRef"
@@ -28,12 +30,30 @@ class Results extends React.Component {
 					renderItem={({ item, index }) => (
 
 						<View style={s.card} >
-							<TouchableOpacity
+							<TouchableWithoutFeedback
 								onPress={() => navigate('BrowserScreen', { link: item.href, title: item.title.trim() })}
-								underlayColor='red'>
-								<Text style={s.header} >{item.title.trim()}</Text>
-								<Text style={s.ing} >{item.ingredients.trim()}</Text>
-							</TouchableOpacity>
+							>
+								<View>
+									<Image
+										source={{ uri: item.thumbnail }}
+										indicator={Progress.Bar}
+										indicatorProps={{
+											size: 10,
+											borderWidth: 0,
+											color: 'black',
+											unfilledColor: 'rgba(200, 200, 200, 0.25)'
+										}}
+										style={{
+											width: 80,
+											height: 45,
+											borderRadius: 10,
+											backgroundColor: '#eee',
+											marginBottom: 5
+										}} />
+									<Text style={s.header} >{item.title.trim()}</Text>
+									<Text style={s.ing} >{item.ingredients.trim()}</Text>
+								</View>
+							</TouchableWithoutFeedback>
 						</View>
 					)} />
 			</Animatable.View>
@@ -53,11 +73,13 @@ const s = StyleSheet.create({
 		marginTop: 20, flex: 1
 	},
 	ing: {
-		fontSize: 12, fontWeight: '200',
-		textAlign: 'left', flex: 1
+		fontSize: 12,
+		textAlign: 'left',
+		fontFamily: 'regular',
 	},
 	header: {
 		fontSize: 16,
+		fontFamily: 'bold',
 	},
 	card: {
 		backgroundColor: '#fff',

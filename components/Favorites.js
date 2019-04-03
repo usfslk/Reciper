@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   Image,
   StyleSheet,
   FlatList,
@@ -19,7 +19,6 @@ class Favorites extends Component {
     this.state = {
       favoritesList: [],
       keys: [],
-      recipe: 'Testing',
       loaded: false,
       loading: true,
       empty: false
@@ -60,13 +59,6 @@ class Favorites extends Component {
     return (
       <View style={s.container}>
 
-        {this.state.empty ?
-          <View style={s.empty}>
-            <Text style={s.emptytext} >
-              Oh such empty!
-        </Text></View>
-          : null}
-
         {this.state.loading ?
           <View style={s.spinner}>
             <Image style={{ width: 25, height: 25 }}
@@ -83,18 +75,22 @@ class Favorites extends Component {
             renderItem={({ item, index }) => (
 
               <View style={s.card} >
-                <TouchableOpacity onPress={() =>
+                <TouchableWithoutFeedback onPress={() =>
                   navigate('BrowserScreen',
                     { link: item.link, title: item.title.trim() })
                 }>
-                  <Text style={s.header}>{item.title}</Text>
-                </TouchableOpacity>
+                  <View>
+                    <Text style={s.header}>{item.title}</Text>
+                  </View>
+                </TouchableWithoutFeedback>
 
-                <TouchableOpacity onPress={() => this.delete(index)} >
-                  <Image style={s.delete}
-                    source={require('../assets/images/delete.png')}
-                  />
-                </TouchableOpacity>
+                <TouchableWithoutFeedback onPress={() => this.delete(index)} >
+                  <View>
+                    <Image style={s.delete}
+                      source={require('../assets/images/delete.png')}
+                    />
+                  </View>
+                </TouchableWithoutFeedback>
               </View>
 
             )} />
@@ -110,6 +106,7 @@ const s = StyleSheet.create({
     flex: 1,
   },
   favtext: {
+    fontFamily: 'regular',
     fontSize: 18,
     paddingLeft: 25,
     paddingVertical: 9,
@@ -121,15 +118,20 @@ const s = StyleSheet.create({
     marginVertical: 10
   },
   textbutton: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'regular',
+
   },
   ing: {
     fontSize: 12,
     textAlign: 'left',
+    fontFamily: 'regular',
   },
   header: {
     fontSize: 16,
-    maxWidth: '90%'
+    maxWidth: '90%',
+    fontFamily: 'regular',
+
   },
   card: {
     backgroundColor: '#fff',
@@ -151,7 +153,9 @@ const s = StyleSheet.create({
   emptytext: {
     paddingVertical: 50,
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 18,
+    fontFamily: 'regular',
+
   },
   spinner: {
     alignSelf: 'center',

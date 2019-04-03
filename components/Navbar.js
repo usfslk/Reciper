@@ -24,20 +24,20 @@ export default class Navbar extends React.Component {
 
 const s = StyleSheet.create({
   navbar: {
-    height: 60 + getStatusBarHeight(),
+    height: 80 + getStatusBarHeight(),
     backgroundColor: '#004eaf',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'nowrap',
-    paddingTop: 25,
-    paddingBottom: 12.5,
-
+    paddingTop: 40,
+    paddingBottom: 20
   },
   title: {
     color: '#F0F0F0',
     fontSize: 18,
-    flexShrink:1
+    flexShrink:1,
+    fontFamily: 'regular',
   },
   inner: {
     marginLeft: 25,
