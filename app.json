@@ -17,11 +17,11 @@
       "buildNumber": "1"
     },
     "android": {
-      "package": "com.usfslk.reciper",
+      "package": "com.usfslk.reciperapp",
       "permissions": [
         "READ_PHONE_STATE"
       ],
-      "versionCode": 6
+      "versionCode": 1
     },
     "splash": {
       "image": "./assets/splash.png",
