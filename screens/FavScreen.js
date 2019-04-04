@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, View, TouchableOpacity, StatusBar, Keyboard } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity, StatusBar, Keyboard, Linking } from 'react-native';
 import Navbar from '../components/Navbar';
 import { RkTextInput } from 'react-native-ui-kitten';
 import { Text } from 'react-native-elements';
@@ -85,7 +85,7 @@ class FavScreen extends Component {
         <Navbar title='Favorites' name="exit-to-app" function="" handle={this.onLogOut} type="icon" />
 
         <View style={{
-          flexDirection: 'row', justifyContent: 'center', marginVertical: 15
+          flexDirection: 'row', justifyContent: 'center', marginBottom: 15
         }}>
           <AdMobBanner
             adSize="mediumRectangle"
@@ -106,8 +106,8 @@ class FavScreen extends Component {
           ref={(popupDialog) => { this.popupError = popupDialog; }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }} >
-            <Image source={require('../assets/images/error.png')}/>
-            <Text style={{marginTop:25, marginHorizontal: 25}}>The username and password you entered did not match our records. Please double-check and try again.</Text>
+            <Image source={require('../assets/images/error.png')} />
+            <Text style={{ marginTop: 25, marginHorizontal: 25 }}>The username and password you entered did not match our records. Please double-check and try again.</Text>
           </View>
         </PopupDialog>
 
@@ -151,8 +151,15 @@ class FavScreen extends Component {
           : null}
 
         {this.state.loggedIn ?
-          <Favorites />
+            <Favorites />
           : null}
+
+        <TouchableOpacity
+          onPress={() => Linking.openURL('https://www.buymeacoffee.com/usfslk')}
+          style={s.coffee}>
+          <Image source={require('../assets/images/coffee.png')} />
+          <Text>Lifetime Ad-free for just $3</Text>
+        </TouchableOpacity>
 
       </View>
     );
@@ -192,6 +199,12 @@ const s = StyleSheet.create({
     justifyContent: 'space-around',
     marginVertical: 7,
     marginHorizontal: 25,
+  },
+  coffee: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginVertical: 15,
   },
   spinner: {
     alignSelf: 'center',

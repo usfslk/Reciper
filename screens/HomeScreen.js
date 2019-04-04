@@ -123,7 +123,8 @@ export default class HomeScreen extends Component {
 
         <View style={s.divider} />
         <RkButton onPress={this.clearSelection.bind(this)} rkType={'clear'}>Clear Selection</RkButton>
-
+        <View style={s.divider} />
+        
         <View style={{ flex: 1 }}>
 
           {this.state.dairy ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
@@ -131,7 +132,7 @@ export default class HomeScreen extends Component {
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
 
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Dairy</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/dairy.png')}
@@ -148,7 +149,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Meats</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/meats.png')}
@@ -164,7 +165,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Vegetables</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/vegetables.png')}
@@ -180,7 +181,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Fruits</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/fruits.png')}
@@ -196,7 +197,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Grains</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/grains.png')}
@@ -212,7 +213,7 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }} >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
                 <Text style={s.category}>Desserts</Text>
                 <Image style={{ width: 50, height: 50 }}
                   source={require('../assets/images/desserts.png')}
