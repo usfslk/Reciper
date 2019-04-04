@@ -85,18 +85,11 @@ export default class HomeScreen extends Component {
     return (
       <View style={s.container}>
         <StatusBar animated translucent backgroundColor="rgba(0, 0, 0, 0.20)" />
-
         <Navbar title="Dashboard" function="Submit" type="white" handle={() => this.switcher()} />
-
-        <View>
-          <Count results={this.state.selectedIngredients} />
-        </View>
-
+        <Count results={this.state.selectedIngredients} />
         <View style={s.divider} />
 
-        <View style={{
-          flexDirection: 'row', justifyContent: 'center',
-        }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
           <AdMobBanner
             adSize="smartBanner"
             adUnitID="ca-app-pub-8573101599140905/4705314737"
@@ -112,7 +105,6 @@ export default class HomeScreen extends Component {
 
         </Animatable.View>
         <View style={s.divider} />
-
         <Animatable.View easing='ease-in' duration={300} animation="fadeInUp" style={s.btnblock}>
 
           <RkButton onPress={this.fruits.bind(this)} rkType={'category'}>Fruits</RkButton>
@@ -132,9 +124,9 @@ export default class HomeScreen extends Component {
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
 
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Dairy</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/dairy.png')}
                 />
               </View>
@@ -149,9 +141,9 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Meats</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/meats.png')}
                 />
               </View>
@@ -165,9 +157,9 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Vegetables</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/vegetables.png')}
                 />
               </View>
@@ -181,9 +173,9 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Fruits</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/fruits.png')}
                 />
               </View>
@@ -197,9 +189,9 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Grains</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/grains.png')}
                 />
               </View>
@@ -213,9 +205,9 @@ export default class HomeScreen extends Component {
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }} >
+              <View style={s.categoryContainer} >
                 <Text style={s.category}>Desserts</Text>
-                <Image style={{ width: 50, height: 50 }}
+                <Image style={s.categoryIMG}
                   source={require('../assets/images/desserts.png')}
                 />
               </View>
@@ -263,6 +255,17 @@ const s = StyleSheet.create({
   },
   divider: {
     marginVertical: 8
+  },
+  categoryContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  categoryIMG: {
+    width: 75,
+   height: 75,
+   marginVertical: 10
   }
 
 });

@@ -158,7 +158,7 @@ class FavScreen extends Component {
           onPress={() => Linking.openURL('https://www.buymeacoffee.com/usfslk')}
           style={s.coffee}>
           <Image source={require('../assets/images/coffee.png')} />
-          <Text>Lifetime Ad-free for just $3</Text>
+          <Text style={s.adfree}>Lifetime Ad-free for just $3</Text>
         </TouchableOpacity>
 
       </View>
@@ -201,11 +201,20 @@ const s = StyleSheet.create({
     marginHorizontal: 25,
   },
   coffee: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    marginVertical: 15,
+    justifyContent: 'center',
+    marginHorizontal: 15,
+    paddingVertical: 10,
+    justifyContent: 'flex-end',
   },
+  adfree: {
+    fontSize: 14,
+    textAlign: 'center',
+    fontFamily: 'light',
+    marginTop: 5,
+  },
+
   spinner: {
     alignSelf: 'center',
     marginVertical: 25,
