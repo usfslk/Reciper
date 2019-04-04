@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView, Dimensions, StatusBar } from 'react-native';
+import { StyleSheet, View, ScrollView, Dimensions, StatusBar, Text } from 'react-native';
 
 import SelectMultiple from 'react-native-select-multiple';
 import * as Animatable from 'react-native-animatable';
@@ -43,16 +43,21 @@ export default class HomeScreen extends Component {
     }
   }
 
+
+  clearSelection() {
+    this.setState({ selectedIngredients: [] });
+  }
+
   dairy() {
-    this.setState({ dairy: true, fruits: true, grains: false, desserts: false, meats: false, vegetables: false });
+    this.setState({ dairy: true, fruits: false, grains: false, desserts: false, meats: false, vegetables: false });
   }
 
   vegetables() {
-    this.setState({ vegetables: true, fruits: true, grains: false, desserts: false, dairy: false, meats: false });
+    this.setState({ vegetables: true, fruits: false, grains: false, desserts: false, dairy: false, meats: false });
 
   }
   meats() {
-    this.setState({ meats: true, fruits: true, grains: false, desserts: false, dairy: false, vegetables: false });
+    this.setState({ meats: true, fruits: false, grains: false, desserts: false, dairy: false, vegetables: false });
   }
 
   fruits() {
@@ -83,6 +88,12 @@ export default class HomeScreen extends Component {
 
         <Navbar title="Dashboard" function="Submit" type="white" handle={() => this.switcher()} />
 
+        <View>
+          <Count results={this.state.selectedIngredients} />
+        </View>
+
+        <View style={s.divider} />
+
         <View style={{
           flexDirection: 'row', justifyContent: 'center',
         }}>
@@ -92,12 +103,8 @@ export default class HomeScreen extends Component {
           />
         </View>
 
-        <View>
-          <Count results={this.state.selectedIngredients} />
-        </View>
-
         <View style={s.divider} />
-        <Animatable.View easing='ease-in' duration={500} animation="fadeIn" style={s.btnblock}>
+        <Animatable.View easing='ease-in' duration={300} animation="fadeInUp" style={s.btnblock}>
 
           <RkButton onPress={this.dairy.bind(this)} rkType={'category'}>Dairy</RkButton>
           <RkButton onPress={this.meats.bind(this)} rkType={'category'}>Meats</RkButton>
@@ -106,7 +113,7 @@ export default class HomeScreen extends Component {
         </Animatable.View>
         <View style={s.divider} />
 
-        <Animatable.View easing='ease-in' duration={500} animation="fadeIn" style={s.btnblock}>
+        <Animatable.View easing='ease-in' duration={300} animation="fadeInUp" style={s.btnblock}>
 
           <RkButton onPress={this.fruits.bind(this)} rkType={'category'}>Fruits</RkButton>
           <RkButton onPress={this.grains.bind(this)} rkType={'category'}>Grains</RkButton>
@@ -115,71 +122,78 @@ export default class HomeScreen extends Component {
         </Animatable.View>
 
         <View style={s.divider} />
+        <RkButton onPress={this.clearSelection.bind(this)} rkType={'clear'}>Clear Selection</RkButton>
+        <View style={s.divider} />
 
         <View style={{ flex: 1 }}>
 
-          {this.state.dairy ? <View>
+          {this.state.dairy ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Dairy</Animatable.Text>
+              <Text style={s.category}>Dairy</Text>
               <SelectMultiple items={dairy} selectedLabelStyle={{ fontFamily: 'regular' }} labelStyle={{ fontFamily: 'light' }}
-                selectedItems={this.state.selectedIngredients} onSelectionsChange={this.onSelectionsChange} />
+                selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }} 
+                onSelectionsChange={this.onSelectionsChange} />
             </ScrollView>
-          </View> : null}
+          </Animatable.View> : null}
 
-          {this.state.meats ? <View>
+          {this.state.meats ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Meats</Animatable.Text>
+              <Text style={s.category} >Meats</Text>
               <SelectMultiple items={meats} selectedLabelStyle={{ fontFamily: 'regular' }} labelStyle={{ fontFamily: 'light' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+            </Animatable.View> : null}
 
-          {this.state.vegetables ? <View>
+          {this.state.vegetables ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Vegetables</Animatable.Text>
+              <Text style={s.category}>Vegetables</Text>
               <SelectMultiple items={vegetables} selectedLabelStyle={{ fontFamily: 'regular' }} labelStyle={{ fontFamily: 'light' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+            </Animatable.View> : null}
 
-          {this.state.fruits ? <View>
+          {this.state.fruits ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               showsVerticalScrollIndicator={false} style={s.list}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Fruits</Animatable.Text>
+              <Text style={s.category} >Fruits</Text>
               <SelectMultiple items={fruits} selectedLabelStyle={{ fontFamily: 'regular' }} labelStyle={{ fontFamily: 'light' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+            </Animatable.View> : null}
 
-          {this.state.grains ? <View>
+          {this.state.grains ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Grains and Bakery</Animatable.Text>
+              <Text style={s.category} >Grains and Bakery</Text>
               <SelectMultiple items={grains} selectedLabelStyle={{ fontFamily: 'regular' }} labelStyle={{ fontFamily: 'light' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+            </Animatable.View> : null}
 
-          {this.state.desserts ? <View>
+          {this.state.desserts ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
             <ScrollView automaticallyAdjustContentInsets={false}
               style={s.list} showsVerticalScrollIndicator={false}
               contentInset={{ top: 0, bottom: this.state.contentInsetBottom }} >
-              <Animatable.Text style={s.category} easing='ease-in' duration={800} animation="fadeIn">Desserts</Animatable.Text>
+              <Text style={s.category}>Desserts</Text>
               <SelectMultiple items={desserts} labelStyle={{ fontFamily: 'light' }} selectedLabelStyle={{ fontFamily: 'regular' }}
                 selectedItems={this.state.selectedIngredients} rowStyle={{ borderBottomColor: '#fff', marginVertical: -5 }}
                 onSelectionsChange={this.onSelectionsChange} />
-            </ScrollView></View> : null}
+            </ScrollView>
+            </Animatable.View> : null}
 
         </View>
-
       </View>
     );
   }
@@ -204,7 +218,7 @@ const s = StyleSheet.create({
     color: '#fff'
   },
   category: {
-    fontSize: 21,
+    fontSize: 20,
     fontFamily: 'bold',
     paddingVertical: 10,
     textAlign: 'center',

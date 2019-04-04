@@ -93,8 +93,6 @@ class FavScreen extends Component {
           />
         </View>
 
-
-
         {this.state.loading ?
           <View style={s.spinner}>
             <Image style={{ width: 25, height: 25 }}
@@ -103,13 +101,6 @@ class FavScreen extends Component {
           </View>
           : null}
 
-        <PopupDialog height={150} width={0.8} dialogStyle={{ justifyContent: 'center', alignItems: 'center' }}
-          ref={(popupDialog) => { this.popupWelcome = popupDialog; }}
-        >
-          <View>
-            <Text>Welcome</Text>
-          </View>
-        </PopupDialog>
 
         <PopupDialog height={150} width={0.8} dialogStyle={{ justifyContent: 'center', alignItems: 'center' }}
           ref={(popupDialog) => { this.popupError = popupDialog; }}
@@ -119,14 +110,6 @@ class FavScreen extends Component {
             <Text style={{marginTop:25, marginHorizontal: 25}}>The username and password you entered did not match our records. Please double-check and try again.</Text>
           </View>
         </PopupDialog>
-
-        {/*      <SearchBar
-        containerStyle={{ backgroundColor: '#fff',borderBottomWidth: 0,
-        borderTopWidth: 0, marginHorizontal: 0}}
-        inputStyle={{ backgroundColor: 'transparent'}}
-        searchIcon={{ size: 24 }}
-        placeholder='Looking for something specific?'
-      />*/}
 
         {this.state.loggedOut ?
           <Text style={s.infoheader}>Please create an account or log in to use this feature</Text>
@@ -189,7 +172,7 @@ const s = StyleSheet.create({
   },
   infoheader: {
     fontSize: 14,
-    paddingVertical: 45,
+    paddingVertical: 50,
     textAlign: 'center',
     marginHorizontal: 25,
     fontFamily: 'light'

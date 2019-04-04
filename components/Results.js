@@ -19,7 +19,7 @@ class Results extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<Animatable.View style={s.flat} easing='ease-in' duration={800} animation="fadeIn" >
+			<Animatable.View style={s.flat} easing='ease-in' duration={300} animation="pulse" >
 
 				<FlatList
 					ref="listRef"

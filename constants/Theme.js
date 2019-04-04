@@ -43,6 +43,15 @@ RkTheme.setType('RkButton', 'category', {
   marginHorizontal: 20, borderRadius: 5
 });
 
+RkTheme.setType('RkButton', 'clear', {
+  color: '#fff',
+  fontSize: 14, 
+  backgroundColor: '#004eaf',
+  marginHorizontal: 40, 
+  borderRadius: 99,
+  paddingVertical: 5
+});
+
 RkTheme.setType('RkText', 'header', {
   textAlign: 'left',
   fontWeight: 'bold',
