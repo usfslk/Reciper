@@ -116,7 +116,7 @@ export default class HomeScreen extends Component {
         <View style={s.divider} />
         <RkButton onPress={this.clearSelection.bind(this)} rkType={'clear'}>Clear Selection</RkButton>
         <View style={s.divider} />
-        
+
         <View style={{ flex: 1 }}>
 
           {this.state.dairy ? <Animatable.View easing='ease-in' duration={600} animation="fadeIn">
@@ -264,8 +264,8 @@ const s = StyleSheet.create({
   },
   categoryIMG: {
     width: 75,
-   height: 75,
-   marginVertical: 10
+    height: 75,
+    marginVertical: 10
   }
 
 });

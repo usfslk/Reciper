@@ -1,7 +1,5 @@
-/**
- * Youssef Selkani
- * https://chrysntm.com
- */
+// Youssef Selkani
+// 2022
 
 import React from 'react';
 import { StatusBar, StyleSheet, View, } from 'react-native';
