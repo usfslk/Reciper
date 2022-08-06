@@ -11,10 +11,10 @@
     "postversion": "react-native-version"
   },
   "dependencies": {
-    "expo": "^30.0.1",
+    "expo": "^33.0.0",
     "firebase": "^5.5.1",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-animatable": "^1.3.0",
     "react-native-elements": "^0.19.1",
     "react-native-global-props": "^1.1.3",
@@ -27,7 +27,7 @@
     "react-native-progress": "^3.6.0",
     "react-native-select-multiple": "^1.2.0",
     "react-native-ui-kitten": "^3.0.1",
-    "react-navigation": "^2.14.2",
+    "react-navigation": "^3.11.0",
     "react-navigation-material-bottom-tabs": "^0.4.0"
   },
   "devDependencies": {
